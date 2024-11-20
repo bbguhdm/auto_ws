@@ -1,0 +1,299 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="project_world">
+    <!-- 添加地面平面 -->
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- 添加太阳光源 -->
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <!-- 设置 Gazebo 环境物理参数 -->
+    <gravity>0 0 -9.81</gravity>
+
+    <!-- 墙壁配置 -->
+    <!-- 左侧墙壁 -->
+    <model name="wall_right">
+      <pose>2 -0.75 0 0 0 0</pose> <!-- 位置设在场地左侧 -->
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6 0.5 1.0</size> <!-- 高度 0.5米，厚度 0.5米，长度 16米 -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6 0.5 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient> <!-- 灰色 -->
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 右侧墙壁 -->
+    <model name="wall_left">
+      <pose>2 2.25 0.25 0 0 0</pose> <!-- 位置设在场地右侧 -->
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>6 0.5 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>6 0.5 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 顶部墙壁 -->
+    <model name="wall_top">
+      <pose>4.75 0.75 1.0 0 0 0</pose> <!-- 位置设在场地顶部 -->
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 2.5 1.0</size> <!-- 宽度 16米，厚度 0.5米 -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 2.5 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 底部墙壁 -->
+    <model name="wall_bottom">
+      <pose>-0.75 0.75 1.0 0 0 0 0</pose> <!-- 位置设在场地底部 -->
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 2.5 1.0</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 2.5 1.0</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <!-- 障碍物配置 -->
+    <model name="obstacle_1">
+      <pose>1.25 -0.25 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 1.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 1.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+    <model name="obstacle_2">
+      <pose>2.75 1.25 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.5 1.5 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.5 1.5 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.5 0.5 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+
+
+
+<model name="ball">
+  <pose>4.02 1.25 0.25 0 0 0</pose> <!-- 球体位置 -->
+  <link name="link">
+    <collision name="collision">
+      <geometry>
+        <sphere>
+          <radius>0.08</radius> <!-- 球的半径 -->
+        </sphere>
+      </geometry>
+    </collision>
+    <visual name="visual">
+      <geometry>
+        <sphere>
+          <radius>0.08</radius>
+        </sphere>
+      </geometry>
+      <material>
+        <ambient>0 1 0 1</ambient> <!-- 颜色为绿色 -->
+      </material>
+    </visual>
+    
+    <!-- 设置球体质量 -->
+    <inertial>
+      <mass>0.2</mass> <!-- 设置质量 -->
+      <inertia> <!-- 设置惯性矩阵 -->
+        <ixx>0.0005</ixx>
+        <iyy>0.0005</iyy>
+        <izz>0.0005</izz>
+      </inertia>
+    </inertial>
+  </link>
+</model>
+
+
+    <!-- 窄球门 -->
+    <!-- 左侧立柱 -->
+    <model name="narrow_gate_left">
+      <pose>4.44 1.55 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size> <!-- 立柱大小，半径0.1米，高度1.0米 -->
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 右侧立柱 -->
+    <model name="narrow_gate_right">
+      <pose>4.44 0.95 0 0 0 0</pose> <!-- 与左侧立柱距离为0.5米（门宽度） -->
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+    <!-- 宽球门 -->
+    <!-- 左侧立柱 -->
+    <model name="wide_gate_left">
+      <pose>4.44 1.75 0 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+    <!-- 右侧立柱 -->
+    <model name="wide_gate_right">
+      <pose>4.44 0.7 0 0 0 0</pose> <!-- 与左侧立柱距离为1米（门宽度） -->
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size>
+            </box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.1 0.05 0.5</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0 0 1 1</ambient>
+          </material>
+        </visual>
+      </link>
+    </model>
+
+  </world>
+</sdf>
+
+
