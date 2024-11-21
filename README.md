@@ -1,6 +1,9 @@
 ## 项目介绍
 该项目使用gazebo仿真实现，用ros实现机器人在迷宫环境中自主导航避障并到达目标点，所有算法均手动实现，不调用现成开源算法。轨迹生成算法使用Polynomial Time Scaling（多项式时间缩放），路径搜索算法使用A*，控制算法使用PID。
 
+![M1GE1ON94X{K55HYD%V K63](https://github.com/user-attachments/assets/8d8c3a32-24b5-4a7a-86fa-697df0f1633f)
+
+
 ## 项目环境
 Ubuntu18.04 ROS melodic
 
