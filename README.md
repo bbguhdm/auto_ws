@@ -26,6 +26,9 @@ source ~/auto_ws/devel/setup.bash
 ### 运行
 ```
 roslaunch auto_car gazebo.launch
+（另开一个终端）
+cd auto_ws/src/auto_car/scripts/
+./auto_go.py
 ```
 另开一个终端
 ```
