@@ -8,16 +8,29 @@ Ubuntu18.04 ROS melodic
 
 ### 克隆仓库到本地
 ```
-
+git clone https://github.com/bbguhdm/auto_ws.git
 ```
 
 ### 编译
 ```
+cd auto_Ws
+catkin_make
+```
 
+### 添加环境变量
+```
+echo "source ~/auto_ws/devel/setup.bash" >> ~/.bashrc
+source ~/auto_ws/devel/setup.bash
 ```
 
 ### 运行
 ```
+roslaunch auto_car gazebo.launch
+```
 
+#### 另开一个终端
+```
+cd auto_ws/src/auto_car/scripts/
+./auto_go.py
 ```
 
